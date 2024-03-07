@@ -214,3 +214,15 @@ body {
   color: #0095f6;
   cursor: pointer
 }
+
+#error_explanation {
+  background-color: #fde4e4;
+  padding: 10px;
+  margin: 0 0 10px 0;
+  border-radius: 7px;
+}
+
+#error_explanation ul {
+  color: #404040;
+  list-style-type: none;
+}

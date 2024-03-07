@@ -3,19 +3,19 @@
   <div class="c-panel__form">
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "users/shared/error_messages", resource: resource %>
+      <%= render "users/shared/error_messages", resource: resource, class: "error-message" %>
               
-        <%= f.email_field :email, autofocus: true, class: "c-panel__input", placeholder: "Email" %>
-         
-        <%= f.text_field :username, autofocus: true,class: "c-panel__input", placeholder: "Username" %>
-    
-        <%= f.text_field :full_name, autofocus: true, class: "c-panel__input", placeholder: "Full name" %>
+      <%= f.email_field :email, autofocus: true, class: "c-panel__input", placeholder: "Email" %>
         
-        <%= f.password_field :password,class: "c-panel__input", placeholder: "Password" %>
-     
-        <%= f.password_field :password_confirmation, class: "c-panel__input", placeholder: "Conform Password" %>
-           
-        <%= f.submit "Sign up", class: "c-btn" %>
+      <%= f.text_field :username, autofocus: true,class: "c-panel__input", placeholder: "Username" %>
+  
+      <%= f.text_field :full_name, autofocus: true, class: "c-panel__input", placeholder: "Full name" %>
+      
+      <%= f.password_field :password,class: "c-panel__input", placeholder: "Password" %>
+    
+      <%= f.password_field :password_confirmation, class: "c-panel__input", placeholder: "Conform Password" %>
+          
+      <%= f.submit "Sign up", class: "c-btn" %>
     <% end %>
     
     <span class="c-panel__span">OR</span>

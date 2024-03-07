@@ -4,6 +4,7 @@
   <div class="c-panel__form">
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
       <%= f.email_field :email, autofocus: true, class: "c-panel__input", placeholder: "Email or Username" %>
 
       <%= f.password_field :password,class: "c-panel__input", placeholder: "Password" %>
