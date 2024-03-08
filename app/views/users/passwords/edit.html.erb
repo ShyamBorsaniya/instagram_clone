@@ -1,25 +1,19 @@
-<h2>Change your password</h2>
+<div class="c-panel group">
+  <div class="forgot_password_text">
+    <p>Change your password</p>
+  </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+  <div class="c-panel__form">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :reset_password_token %>
+      <%= f.password_field :password, class: "c-panel__input", placeholder: "New password" %>
+      <%= f.password_field :password_confirmation, class: "c-panel__input", placeholder: "Confirm new password" %>
+      <%= f.submit "Change my password", class: "c-btn1" %>
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+<div class="c-signup group">
+  <p>Don't Reset Password? <span> <%= link_to "Log in", new_session_path(resource_name) %></span></p>
+</div>
