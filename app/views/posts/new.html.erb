@@ -1,0 +1,14 @@
+<%= form_with model: @post do |form|%>
+  <div>
+    <%= form.label "Desc :" %>
+    <%= form.text_area :desc %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true %>
+  </div>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <%= form.submit%>
+<% end %>

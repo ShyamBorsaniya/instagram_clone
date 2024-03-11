@@ -70,3 +70,5 @@ gem "devise", "~> 4.9"
 gem "sassc-rails"
 
 gem "letter_opener", group: :development
+
+gem 'activestorage'

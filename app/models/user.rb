@@ -4,9 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, authentication_keys: [:login]
 
+  has_many :posts
+
   validates :username, presence: true
   validates :full_name, presence: true
-
     
   def login
     @login || self.username || self.email
