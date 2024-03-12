@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram Post Card Clone</title>
-     <%= stylesheet_link_tag :post %>
+     <%= stylesheet_link_tag :home %>
 </head>
 
 <body>
@@ -71,7 +71,7 @@
                 <div class="profileImg">
                     <%= image_tag 'default-user.png', class: "cover" %>
                 </div>
-                <p>Nikhil Kumar<br><span>Web Designer</span></p>
+                <p><%= current_user.full_name %></p>
             </div>
             <h5>Suggestions for you</h5>
             <div class="userDeatils">

@@ -1,14 +1,42 @@
-<%= form_with model: @post do |form|%>
-  <div>
-    <%= form.label "Desc :" %>
-    <%= form.text_area :desc %>
-  </div>
-  <br>
-  <div>
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true %>
-  </div>
-  <%= form.hidden_field :user_id, value: current_user.id %>
+<!DOCTYPE html>
+<html lang="en">
 
-  <%= form.submit%>
-<% end %>
+<head>
+     <%= stylesheet_link_tag :add_post %>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h2>Create Post</h2>
+      <%# <hr> %>
+        <%= form_with model: @post do |form|%>
+          <div data-controller="show-image">
+            <div class="imgBg"> 
+              <%#= image_tag 'img1.jpg', class: "cover" %>
+              <%= image_tag("", data: { target: "show-image.output" }) %>
+            </div>
+            <div>
+              <%= form.file_field :images, multiple: true, class: "input_teg", data: {target: "show-image.input", action: "show-image#readURL" } %>
+            </div>
+            <br>
+            <div>
+              <%= form.text_area :desc, class: "input_teg", placeholder: "Add Description" %>
+            </div>
+          </div>
+
+          <%# <div data-controller="show-image"> %>
+          <%#= image_tag("", data: { target: "show-image.output" }) %>
+              <%#= form.file_field :images, data: {target: "show-image.input", action: "show-image#readURL" } %>
+          <%# </div> %>
+
+
+
+          <%= form.hidden_field :user_id, value: current_user.id %>
+
+          <%= form.submit "Create post", class: "btn"%>
+        <% end %>
+    </div>
+  </div>
+</body>
+</html>
