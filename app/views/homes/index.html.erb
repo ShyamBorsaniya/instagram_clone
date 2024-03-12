@@ -1,3 +1,6 @@
+
+<%= button_to 'Log-Out',destroy_user_session_path, method: :delete %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +21,8 @@
           <div class="top">
               <div class="userDeatils">
                   <div class="profileImg">
-                      <%= image_tag 'default-user.png', class: "cover" %>
+                    <%= image_tag user_image_url(post.user), class: "cover"%>
+                    <%#= image_tag 'default-user.png', class: "cover" %>
                   </div>
                   <h3><%= post.user[:full_name] %></h3>
               </div>
@@ -54,7 +58,8 @@
           <h4 class="comments">View all 546 comments</h4>
           <div class="addComments">
               <div class="userImg">
-                <%= image_tag 'default-user.png', class: "cover" %>
+                <%= image_tag user_image_url(post.user), class: "cover"%>
+                <%#= image_tag 'default-user.png', class: "cover" %>
               </div>
               <input type="text" class="text" placeholder="Add a comment...">
           </div>
@@ -69,7 +74,10 @@
         <div class="top">
             <div class="userDeatils">
                 <div class="profileImg">
-                    <%= image_tag 'default-user.png', class: "cover" %>
+
+                    <%= image_tag user_image_url(current_user), class: "cover"  %>
+
+                    <%#= image_tag 'default-user.png', class: "cover" %>
                 </div>
                 <p><%= current_user.full_name %></p>
             </div>
@@ -119,7 +127,6 @@
     </div>
     </div>
   </div>
-    
 
     <%# <script>
                 function likeButton(){
@@ -137,5 +144,3 @@
 
 </body>
 </html>
-
-<%= button_to 'Log-Out',destroy_user_session_path, method: :delete %>

@@ -59,7 +59,8 @@
           <button class="profile-button">
             <div class="profile-button__border"></div>
             <div class="profile-button__picture">
-              <%= image_tag 'default-user.png'%>
+              <%#= image_tag url_for(current_user.image)%>
+              <%= image_tag user_image_url(current_user) %>  
             </div>
           </button>
         </div>

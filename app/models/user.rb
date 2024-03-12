@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, authentication_keys: [:login]
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
+  has_one_attached :image
 
   validates :username, presence: true
   validates :full_name, presence: true
@@ -21,5 +22,4 @@ class User < ApplicationRecord
       where(conditions.to_h).first
     end
   end
-
 end
