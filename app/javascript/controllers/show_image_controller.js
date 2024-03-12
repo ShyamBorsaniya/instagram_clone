@@ -6,7 +6,6 @@ export default class extends Controller {
   connect() {}
 
   readURL() {
-    debugger
     var input = this.inputTarget
     var output = this.outputTarget
 

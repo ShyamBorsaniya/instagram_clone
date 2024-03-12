@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
      <%= stylesheet_link_tag :add_post %>
 </head>
@@ -15,7 +12,7 @@
               <%= image_tag("", data: { target: "show-image.output" }) %>
             </div>
             <div>
-              <%= form.file_field :images, multiple: true, class: "input_teg", data: {target: "show-image.input", action: "show-image#readURL" } %>
+              <%= form.file_field :image, class: "input_teg", data: {target: "show-image.input", action: "show-image#readURL" } %>
             </div>
             <br>
             <div>

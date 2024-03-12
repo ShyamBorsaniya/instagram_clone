@@ -5,7 +5,6 @@
       <%= render "users/shared/error_messages", resource: resource, class: "error-message" %>     
       <%= f.email_field :email, autofocus: true, class: "c-panel__input", placeholder: "Email" %>
       <%= f.text_field :username, autofocus: true,class: "c-panel__input", placeholder: "Username" %>
-      <%= f.text_field :full_name, autofocus: true, class: "c-panel__input", placeholder: "Full name" %>
       <%= f.password_field :password,class: "c-panel__input", placeholder: "Password" %>
       <%= f.password_field :password_confirmation, class: "c-panel__input", placeholder: "Conform Password" %>
       <%= f.submit "Sign up", class: "c-btn" %>

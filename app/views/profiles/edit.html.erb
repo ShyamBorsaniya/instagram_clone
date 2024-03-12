@@ -1,0 +1,31 @@
+<head>
+     <%= stylesheet_link_tag :edit_profile %>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h2>Update Profile</h2>
+        <%= form_with model: @current_user_profile do |form|%>
+          <div data-controller="show-image">
+            <div class="imgBg">
+              <%= image_tag(user_image_url(@current_user_profile), data: { target: "show-image.output" }) %>
+            </div>
+
+            <%= form.text_field :full_name, class: "input_teg", placeholder: "Full name" %>
+            <%= form.text_area :bio, class: "input_teg", placeholder: "Bio" %>
+            <%= form.telephone_field :number, class: "input_teg", placeholder: "Phone number" %>
+            <%= form.date_field :dob, class: "input_teg" %>
+            <%= form.select :gender, ["Male", "Female"], {}, class: "input_teg", selected: "Male"%><br><br>
+            <%= form.file_field :image, class: "input_teg", data: {target: "show-image.input", action: "show-image#readURL" } %>
+          </>
+          <%= form.hidden_field :user_id, value: current_user.id %>
+          <%= form.submit "Update profile", class: "btn"%>
+        <% end %>
+    </div>
+  </div>
+</body>
+</html>
+
+
+<%#= image_tag user_image_url(@current_user_profile) %>

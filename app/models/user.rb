@@ -5,10 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable, authentication_keys: [:login]
 
   has_many :posts, dependent: :destroy
+  has_one :profile
   has_one_attached :image
 
   validates :username, presence: true
-  validates :full_name, presence: true
+
+  after_create :create_profile
     
   def login
     @login || self.username || self.email
