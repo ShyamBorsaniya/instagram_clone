@@ -22,12 +22,13 @@
               </ul>
             </div>
             <div class="descriptions row last">
-              <h1>apple</h1>
               <span>
+                <%= current_user.profile.bio %>
                 Everyone has a story to tell.
-                <br />
-                Tag <a>#ShotoniPhone</a> to take part.
               </span>
+              <div class="btn">
+                <a href="<%= edit_profile_path(current_user.id) %>" class="btn_text" >Edit Profile</a>
+              </div>
             </div>
           </div>
         </div>
@@ -57,12 +58,7 @@
         <div class="arrow-right-icon"></div>
       </button>
     </ul> %>
-
-    <div class="btn">
-      <a href="<%= edit_profile_path(current_user.id) %>" >Edit Profile</a>
-    </div>
     
-
     <div class="desktop-only">
       <div class="tabs">
         <div class="tab-item active" style="margin-right: 60px;">

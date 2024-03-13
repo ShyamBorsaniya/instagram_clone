@@ -123,7 +123,7 @@ header {
   }
 }
 .profile-info .details li {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
   margin-right: 40px;
 }
@@ -132,6 +132,7 @@ header {
 }
 .profile-info .details ul {
   display: flex;
+  justify-content: space-evenly;
 }
 .profile-info .descriptions h1 {
   font-weight: 600;
@@ -141,9 +142,7 @@ header {
   font-weight: 400;
   line-height: 24px;
 }
-.profile-info .descriptions a {
-  color: hsl(209, 100%, 21%);
-}
+
 @media only screen and (max-width: 735px) {
   .profile-info .descriptions {
     padding-left: 16px;
@@ -297,8 +296,9 @@ header {
   position: relative;
 }
 .gallery-item img {
-  width: 100%;
-  display: block;
+  object-fit: cover;
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
 }
 .gallery-item .media-icon {
   position: absolute;
@@ -317,15 +317,7 @@ header {
   margin:10px 0 20px 0;
 }
 
-.btn a {
+.btn_text {
   text-decoration: none;
   color: aliceblue;
-  /* text-align: center;
-  font-weight: 500;
-  border: none;
-  background: #0095f6;
-  border-radius: 4px;
-  line-height: 18px;
-  padding: 7px;
-  margin:10px 0 20px 0; */
 }

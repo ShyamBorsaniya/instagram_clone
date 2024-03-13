@@ -109,6 +109,8 @@
     margin-top: 10px;
     align-items: center;
     color: #999;
+    text-decoration: none;
+    font-weight: bold;
 }
 .addComments{
     display: flex;
@@ -181,4 +183,20 @@
 }
 .sidebar .top .userDeatils span{
     font-size: 0.75em;
+}
+
+.all_comments {
+    margin-top: 20px;
+    min-height: max-content;
+    max-height: 350px;
+    overflow-y: scroll;
+}
+
+.sub_comment {
+    margin: 8px 0 8px 48px;
+}
+
+.addComments form {
+    width: 100%;
+    display: flex;
 }
