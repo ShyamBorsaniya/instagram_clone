@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :username, presence: true
 
   after_create :create_profile
-    
+
   def login
     @login || self.username || self.email
   end

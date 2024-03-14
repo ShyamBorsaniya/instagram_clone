@@ -12,9 +12,7 @@
                     <div class="top">
                         <div class="userDeatils">
                             <div class="profileImg">
-
                             <%= image_tag user_image_url(post.user.profile), class: "cover"%>
-                            <%#= image_tag 'default-user.png', class: "cover" %>
                             </div>
                             <h3><%= post.user[:username] %></h3>
                         </div>
@@ -25,13 +23,14 @@
 
                     <div class="imgBg">
                         <%= image_tag post.image, class: "cover" if post.image.attached? %>
-                        <%#= image_tag 'img1.jpg', class: "cover" %>
-                        <%# <img src="Bg.jpg" alt="bg" class="cover"> %>
                     </div>
 
                     <div class="btns">
                         <div class="left">
-                            <%= image_tag 'heart.svg', class: "heart" %>
+                            <div data-controller="likes" data-likes-user-id-value= "<%= current_user.id %>" data-likes-likeable-id-value= "<%= post.id %>" data-likes-likeable-type-value= "<%= post.class %>" >
+                                <a class="comments"  data-action="click->likes#onClick" > <%= image_tag 'like-border.svg', class: "heart" %></a>
+                            </div>
+                            <%#= image_tag 'like-border.svg', class: "heart" %
                             <%= image_tag 'comment.svg', class: "heart" %>
                             <%= image_tag 'share.svg', class: "heart" %>
                         </div>
@@ -40,7 +39,7 @@
                         </div>
                     </div>
 
-                    <h4 class="likes">5,489 likes</h4>
+                    <h4 class="likes"><%= post.likes.count %> likes</h4>
 
 
                     <h4 class="message">
@@ -68,6 +67,11 @@
                                                 <%= comment.body %><br>
                                                 <span>
                                                     <a data-action="click->show-all-comments#showReply">Reply</a>
+                                                    <% if(comment.user.id == current_user.id) %>
+                                                        | <a><%= link_to "Delete", comment_path(comment), data: {
+                                                                turbo_method: :delete,
+                                                                turbo_confirm: "Are you sure?"}, style: "text-decoration: none; color: #cf0000;" %></a>
+                                                    <% end %>
                                                 </span><br>
                                             </p>
                                         </div>
@@ -102,6 +106,15 @@
                                                     <p>
                                                         <%= comment.user.username %><br>
                                                         <%= comment.body %><br>
+                                                        <span>
+                                                            <% if(comment.user.id == current_user.id) %>
+                                                                <a>
+                                                                    <%= link_to "Delete", comment_path(comment), data: {
+                                                                        turbo_method: :delete,
+                                                                        turbo_confirm: "Are you sure?"}, style: "text-decoration: none; color: #cf0000;" %>
+                                                                </a>
+                                                            <% end %>
+                                                        </span>
                                                     </p>
                                                 </div>
                                                 <div>
@@ -111,6 +124,7 @@
                                         <% end %>
                                         
                                     </div>
+
                                 </div>
                             <% end %>
                         </div>
